@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<body>
+	<!-- if we use th:text, its value is rendered at runtime, i.e. Hello World is just a placeholder text 
+	that may have been given by html designer -->
+	<!-- browser never gets to see thymeleaf tags -->
+	<p th:text="${model.userId}">Hello World</p>
+	<!-- we cannot do this -->
+	<!-- <p th:text="Hello${username}">Hello World</p> -->
+	<!-- or this -->
+	<!-- <p th:text="${Hello username}">Hello World</p> -->
+	<!-- but we can do this -->
+	<p th:text="${'Hello ' + model.userId}">Hello World</p>
+	<!-- and this -->
+	<p th:text="'Also Hello ' + ${model.userId}">Hello World</p>
+	<br>
+	<p>GoodBye</p>
+	<p>
+		<!-- below only works for 1 query parameter -->
+		<a th:href="@{/profile?id=} + ${model.userId}">Click here for Profile</a>
+		<br>
+		<!-- if we want to send in multiple query parameters, use below -->
+		<a th:href="@{/profile(id=${model.userId},nextqueryparam=2)}">Click here for Profile with Multiple Query Params</a>
+	</p>
+</body>
+</html>
