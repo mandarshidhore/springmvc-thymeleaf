@@ -61,6 +61,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<!-- following section tells maven to not omit anything under src/main/resources while building artifact -->
 		<resources>
 			<resource>
 				<filtering>false</filtering>
