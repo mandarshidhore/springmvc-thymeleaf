@@ -22,9 +22,11 @@
 	<h2>Languages Spoken</h2>
 	<p>You Speak <span th:text="${model.languages.size() >= 3} ? '3 or more' : '2 or less'">x</span> languages</p>
 	<!-- use th:if for conditional statements -->
-	<ul th:if=" ${model.languages.size() >= 3}">
+	<ul th:if="${model.languages.size() >= 3}">
 		<li th:each="lang : ${model.languages}" th:text="${lang}">Placeholder Language</li>
 	</ul>
+	
+	<p>You speak <b><span th:each="lang : ${model.languages}" th:text="${lang} + ' '"></span></b> languages</p>
 	<!-- use @ for links -->
 	<p><a th:href="@{/}">Click here </a>to go back to homepage</p>
 </body>
